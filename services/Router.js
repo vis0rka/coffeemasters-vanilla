@@ -23,21 +23,18 @@ const Router = {
         let pagElement = null;
         switch(route){
             case "/":
-                pagElement = document.createElement("h1");
-                pagElement.textContent = "Menu";
-                console.log("home");
+                pagElement = document.createElement("menu-page");
+                console.log(pagElement);
                 break;
             case "/order":
-                pagElement = document.createElement("h1");
-                pagElement.textContent = "Your Order";
+                pagElement = document.createElement("order-page");
                 console.log("order");
                 break;
             default:
                 if(route.startsWith("/product-")){
-                    pagElement = document.createElement("h1");
-                    pagElement.textContent = "Details";
+                    pagElement = document.createElement("details-page");
                     const paramId = route.substring(route.lastIndexOf("-") + 1);
-                    pagElement.dataset.id = paramId;
+                    pagElement.dataset.productId = paramId;
                 }
         }
         if(pagElement){
